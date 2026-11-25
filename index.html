@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opera Avenue Hotel — Yerevan</title>
+  <meta name="description" content="Opera Avenue Hotel is a four-star hotel of 18 rooms at 29 Tumanyan Street, Yerevan, a short walk from the Armenian National Opera and Ballet Theatre.">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:wght@400;500&family=Great+Vibes&family=Montserrat:wght@400;500;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header" id="header">
+    <a class="brand" href="/" data-nav>
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path fill="currentColor" d="M7 25V9h2v16H7zm16 0V9h2v16h-2zM10.5 11.5h11v1.6h-11v-1.6zm0 3.6h11V16.7h-11V15.1z"/>
+      </svg>
+      <span>Opera Avenue Hotel</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/about" data-nav>About</a>
+      <a href="/rooms" data-nav>Rooms</a>
+      <a href="/offers" data-nav>Offers</a>
+      <a href="/terrace" data-nav>Terrace</a>
+      <a href="/dining" data-nav>Dining</a>
+      <a href="/celebrations" data-nav>Celebrations</a>
+      <div class="drop">
+        <button type="button" aria-haspopup="true">More</button>
+        <div class="drop-menu">
+          <a href="/experiences" data-nav>Experiences</a>
+          <a href="/gallery" data-nav>Gallery</a>
+          <a href="/practical" data-nav>Practical</a>
+          <a href="/contacts" data-nav>Contacts</a>
+        </div>
+      </div>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-book" href="/booking" data-nav>Book</a>
+      <button class="btn btn-chat" type="button" id="open-chat">Chat</button>
+      <button class="menu-btn" type="button" id="open-menu" aria-label="Open menu"><span></span></button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <div class="menu-top">
+      <strong>Opera Avenue</strong>
+      <button class="menu-close" type="button" id="close-menu" aria-label="Close menu">×</button>
+    </div>
+    <a href="/" data-nav>Home</a>
+    <a href="/about" data-nav>About</a>
+    <a href="/rooms" data-nav>Rooms</a>
+    <a href="/offers" data-nav>Offers</a>
+    <a href="/terrace" data-nav>Terrace</a>
+    <a href="/dining" data-nav>Dining</a>
+    <a href="/celebrations" data-nav>Celebrations</a>
+    <a href="/experiences" data-nav>Experiences</a>
+    <a href="/gallery" data-nav>Gallery</a>
+    <a href="/practical" data-nav>Practical</a>
+    <a href="/contacts" data-nav>Contacts</a>
+    <a href="/booking" data-nav>Book</a>
+  </div>
+
+  <main id="view"></main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h2>Opera Avenue Hotel</h2>
+        <p>29 Tumanyan Street<br>Yerevan 1234, Armenia</p>
+        <p><a href="tel:+37455266277">+374 55 266 277</a></p>
+        <p><a href="mailto:operaavenuehotel@gmail.com">operaavenuehotel@gmail.com</a></p>
+      </div>
+      <div>
+        <h3>Stay</h3>
+        <a href="/rooms" data-nav>Rooms</a>
+        <a href="/offers" data-nav>Offers</a>
+        <a href="/booking" data-nav>Book</a>
+        <a href="/practical" data-nav>Check-in</a>
+      </div>
+      <div>
+        <h3>House</h3>
+        <a href="/dining" data-nav>Dining</a>
+        <a href="/terrace" data-nav>Terrace</a>
+        <a href="/celebrations" data-nav>Celebrations</a>
+        <a href="/gallery" data-nav>Gallery</a>
+      </div>
+      <div>
+        <h3>Visit</h3>
+        <a href="/experiences" data-nav>Experiences</a>
+        <a href="/contacts" data-nav>Contacts</a>
+        <a href="/about" data-nav>About</a>
+        <p>Ostrovok 8.2 / 10 · 37 reviews</p>
+      </div>
+    </div>
+    <div class="legal">
+      Opera Avenue Hotel · 29 Tumanyan Street, Yerevan. Hotel photographs are from the public listing. Opera House photographs: Armenak Margarian, CC BY-SA 4.0, and Vladimir Shioshvili, CC BY-SA 2.0, via Wikimedia Commons.
+      <p class="credit">Website developed by <a href="https://aibek-32f39.web.app/" target="_blank" rel="noopener">https://aibek-32f39.web.app/</a></p>
+    </div>
+  </footer>
+
+  <aside class="chat" id="chat" hidden>
+    <h2>Message the hotel</h2>
+    <p>The desk is open around the clock. Write on WhatsApp and the team will answer with availability.</p>
+    <a class="btn btn-line" id="chat-wa" href="https://wa.me/37455266277" target="_blank" rel="noopener">WhatsApp</a>
+  </aside>
+  <button class="chat-fab" type="button" id="chat-fab" aria-label="Open chat">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 6.5h14v9H8l-3 2.5V6.5z" stroke="currentColor" stroke-width="1.4"/>
+    </svg>
+  </button>
+
+  <div class="cookie" id="cookie" hidden>
+    <p>This note is saved in your browser so the message stays closed. The site does not set tracking cookies.</p>
+    <button class="btn btn-line" type="button" id="cookie-ok">OK</button>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
