@@ -359,20 +359,20 @@
   var galleryShots = [];
   var galleryIndex = 0;
 
-  var FILE = location.protocol === "file:";
-
   function routeState() {
-    if (FILE) {
-      var raw = (location.hash || "#/").replace(/^#/, "");
-      if (!raw || raw === "/") return { path: "/", search: "" };
-      if (raw.charAt(0) !== "/") raw = "/" + raw;
-      var q = raw.indexOf("?");
-      if (q === -1) return { path: raw.replace(/\/$/, "") || "/", search: "" };
-      return { path: raw.slice(0, q).replace(/\/$/, "") || "/", search: raw.slice(q) };
-    }
-    var p = location.pathname.replace(/\/$/, "");
-    if (!p || /index\.html$/i.test(p)) p = "/";
-    return { path: p, search: location.search };
+    var raw = (location.hash || "#/").replace(/^#/, "");
+    if (!raw || raw === "/") return { path: "/", search: "" };
+    if (raw.charAt(0) !== "/") raw = "/" + raw;
+    var q = raw.indexOf("?");
+    if (q === -1) return { path: raw.replace(/\/$/, "") || "/", search: "" };
+    return { path: raw.slice(0, q).replace(/\/$/, "") || "/", search: raw.slice(q) };
+  }
+
+  function hashLinks(root) {
+    (root || document).querySelectorAll("a[data-nav]").forEach(function (a) {
+      var href = a.getAttribute("href") || "";
+      if (href.charAt(0) === "/") a.setAttribute("href", "#" + href);
+    });
   }
 
   function pathOf() {
@@ -431,6 +431,7 @@
     document.title = path === "/" ? "Opera Avenue Hotel — Yerevan" : "Opera Avenue Hotel — " + (view.querySelector("h1") ? view.querySelector("h1").textContent : "Yerevan");
     paintHeader();
     window.scrollTo(0, 0);
+    hashLinks(view);
     bindPage();
   }
 
@@ -438,13 +439,8 @@
     var target = url.charAt(0) === "#" ? url.slice(1) : url;
     if (target.charAt(0) !== "/") target = "/" + target;
     closeMenu();
-    if (FILE) {
-      if (location.hash === "#" + target) render();
-      else location.hash = target;
-      return;
-    }
-    history.pushState({}, "", target);
-    render();
+    if (location.hash === "#" + target) render();
+    else location.hash = target;
   }
 
   function closeMenu() {
@@ -463,10 +459,7 @@
     go(href);
   });
 
-  window.addEventListener("popstate", render);
-  window.addEventListener("hashchange", function () {
-    if (FILE) render();
-  });
+  window.addEventListener("hashchange", render);
   window.addEventListener("scroll", paintHeader, { passive: true });
 
   document.getElementById("open-menu").addEventListener("click", function () {
@@ -570,5 +563,6 @@
     }
   });
 
+  hashLinks(document);
   render();
 })();
